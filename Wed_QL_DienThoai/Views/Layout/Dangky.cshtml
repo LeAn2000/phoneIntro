@@ -1,0 +1,22 @@
+﻿@using Wed_QL_DienThoai.Models;
+@{
+    ViewBag.Title = "DangNhap";
+    <link href="~/Content/bootstrap/css/StyleSheet2.css" rel="stylesheet" />
+}
+<form action="/Layout/Dangky" method="post">
+    <div class="hero">
+        <div class="form-box">
+            <div class="button-box">
+                <div id="layout"></div>
+                <button class="btn">ĐĂNG KÝ</button>
+            </div>
+            <form class="input-group">
+                <input type="text" name="txtemail" class="input-field" placeholder="Email" required />
+                <input type="text" name="txttk" class="input-field" placeholder="Tài khoản" required />
+                <input type="password" name="txtmk" class="input-field" placeholder="Mật khẩu" required />
+                <button type="submit" class="submit-btn">Đăng ký</button>
+                <span class="link">@Html.ActionLink("Đăng nhập ngay", "DangNhap", "Layout", new { @class = "a" })</span>
+            </form>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap/css/StyleSh.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+</head> 
+<body>
+    <section id="nav-bar">
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <a class="navbar-brand" href="@Url.Action("Trangchu","Layout")">
+                <img src="~/Content/filehinh/logo.png" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ">
+                        <div class="form-inline">
+                            <img class="img-icon" src="~/Content/filehinh/home.png" />
+                            @Html.ActionLink("TRANG CHỦ", "Trangchu", "Layout", new { @class = "nav-link" })
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="form-inline">
+                            <img class="img-icon" src="~/Content/filehinh/sanpham.png" />
+                            @Html.ActionLink("ĐIỆN THOẠI", "DanhsachSp", "Layout", new { @class = "nav-link" })
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="form-inline">
+                            <img style="width:30px;" src="~/Content/filehinh/giohang.png" />
+                            @Html.ActionLink("GIỎ HÀNG", "XemGioHang", "Layout", new { @class = "nav-link" })
+                            @Html.Action("KhoiTaoLayout", "Layout")
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="form-inline">
+                            <img style="width:30px;" src="~/Content/filehinh/lienhe.png" />
+                            @Html.ActionLink("LIÊN HỆ", "Lienhe", "Layout", new { @class = "nav-link" })
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div style="margin-top:5px;">
+                            <a href="@Url.Action("DangNhap","Layout")"> <img class="img-icon" src="~/Content/filehinh/login.png" /></a>
+                                @Html.Action("KhoiTaoLayout2", "Layout")
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div style="margin-top:5px;">
+                            
+                           <a href="@Url.Action("DangNhap","Layout")"> <img class="img-icon" src="~/Content/filehinh/logout.png" /></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+    <div>
+        @RenderBody()
+    </div>
+    <section id="footer">
+        <img src="~/Content/filehinh/wave.png" class="footer-img" />
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 footer-box">
+                    <img src="~/Content/filehinh/logo.png" />
+                    <h3>Thông tin liên hệ</h3>
+                    <label>Gmail:</label><a href="#">lenguyenlongquocan@gmail.com</a>
+                    <p><b>Số điện thoại: 0956241369</b></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="~/Content/bootstrap/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="~/Content/bootstrap/js/jquery-3.3.1.min.js"></script>
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

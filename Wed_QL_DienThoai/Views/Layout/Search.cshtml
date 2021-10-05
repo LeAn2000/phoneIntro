@@ -1,0 +1,48 @@
+﻿<form action="~/Views/Layout/SearchPost" method="post">
+    <div class="search-box">
+        <input type="text" name="txtTen" class="search-txt" placeholder="Tìm kiếm"/>
+        <input type="image" class="search-btn" src="~/Content/filehinh/search.png" />
+        <style>
+            .searchbox {
+                position:absolute;
+                top:50%;
+                left:50%;
+                transform:translate(-50%,-50%);
+                background:#ffffff;
+                height:40px;
+                border-radius:40px;
+                padding:10px;
+            }
+            .search-btn {
+                color:#0094ff;
+                float:right;
+                width:40px;
+                height:40px;
+                border-radius:50px;
+                display:flexbox;
+                flex-item-align:center;
+            }
+            .search-txt {
+                border:none;
+                background:none;
+                outline:none;
+                float:left;
+                padding:0;
+                color:black;
+                font-size:16px;
+                transition:0.4s;
+                margin-top:7px;
+                line-height:40%;
+                width:0px;
+            }
+            .search-box:hover > .search-txt {
+                width:200px;
+                padding:0 6px;
+
+            }
+        </style>   
+        
+    </div>
+</form>
+
+

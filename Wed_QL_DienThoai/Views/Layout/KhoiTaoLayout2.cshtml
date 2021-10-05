@@ -1,0 +1,11 @@
+﻿@using Wed_QL_DienThoai.Models;
+
+@model GioHang
+@if (ViewBag.a != null)
+    {
+        KhachHang khach = ViewBag.a;
+        <label>
+            @khach.TaiKhoan
+        </label>
+
+    }

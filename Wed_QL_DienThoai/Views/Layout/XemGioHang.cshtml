@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "XemGioHang";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+@using Wed_QL_DienThoai.Models;
+
+@model GioHang
+@try {
+    <table class="table">
+    <tr class="title-gh">
+        <td>Mã Điện Thoại</td>
+        <td>Tên Điện Thoại</td>
+        <td>Ảnh</td>
+        <td>Số lượng</td>
+        <td>Đơn giá</td>
+        <td>Thành tiền</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    @foreach (CartItem item in Model.listDT)
+    {
+        <tr class="content-gh">
+            <td>@item.iMaDT</td>
+            <td>@item.sTenDT</td>
+            <td><img src="~/Content/filehinh/@item.sAnhBia" style="width:70px;height:100px;" /></td>
+            <td>@item.iSoLuong</td>
+            <td>@String.Format("{0:#,##}",@item.dDonGia)</td>
+            <td>@String.Format("{0:#,##}",@item.ThanhTien)</td>
+            <td>
+                <a href="@Url.Action("ChitietDT", "Layout", new {madt=@item.iMaDT })">Chi tiết sản phẩm</a>
+</td>
+            <td>
+                <a href="@Url.Action("XoaMatHang", "Layout", new {Madt=@item.iMaDT })">Xóa</a>
+            </td>
+        </tr>
+
+    }
+    <tr>
+        <td style="font-size:25px">Tổng Tiền</td>
+        <td style="font-size:25px" class="text-danger text-bold">@String.Format("{0:#,##}", Model.TongThanhTien())</td>
+        <td>@Html.ActionLink("Xóa giỏ hàng", "Xoamathang", "Layout", new { @class = "btn2" })</td>
+        <td>
+            @Html.ActionLink("Đăt hàng", "XacNhanDonHang", "Layout", new { @class = "btn2" })
+        </td>
+        <td>
+            @Html.ActionLink("Xem Sản phâm khác", "DanhsachSp", "Layout", new { @class = "btn2" })
+        </td>
+    </tr>
+</table>
+
+}catch
+{
+    <script>
+        alert("Bạn chưa có giỏ hàng nào");
+    </script>
+}
+

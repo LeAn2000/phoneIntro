@@ -1,0 +1,11 @@
+﻿@using Wed_QL_DienThoai.Models;
+
+@model GioHang
+@if (Model == null)
+{
+    <label style="color:red">0</label>
+}
+else
+{
+    <label style="color:red">@Model.SoMatHang()</label>
+}

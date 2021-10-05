@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "SearchNC";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2 style="margin-left:50px;">Tìm kiếm nâng cao</h2>
+<form action="/Layout/SearchNC" method="post">
+    <div style="margin-left:100px;">
+        Tên Sản phẩm
+        <br />
+        <input type="text" name="txtTen" />
+        <br />
+        <br />
+        Loại Điện Thoại
+    @Html.DropDownList("MaLoai")
+        <br />
+        <br />
+        Giá
+        <br />
+        <input type="checkbox" name="g2" value="1" />
+        0 - 1.000.000<br />
+        <input type="checkbox" name="g3" value="2" />
+        1.000.000 - 5.000.000<br />
+        <input type="checkbox" name="g4" value="3" />   
+        5.000.000 - 10.000.000<br />
+        <input type="checkbox" name="g4" value="4" />
+        >10.000.000<br /><br />
+
+        <input type="submit" value="Tim Kiem" />
+    </div>
+
+</form>

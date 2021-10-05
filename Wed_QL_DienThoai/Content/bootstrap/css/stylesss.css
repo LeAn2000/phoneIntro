@@ -1,0 +1,100 @@
+﻿*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Tahoma;
+}
+.continer {
+    position:relative;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:100%;
+    box-shadow:0 2px 4px #2d2d2d;
+    background-color:#fff;
+
+
+}
+    .continer .img-box, .continer .content-box, .continer .button-box {
+        float:left;
+    
+    }
+    .continer .img-box {
+    position:relative;
+    width:50%;
+    height:451px;
+    
+    }
+        .continer .img-box img {
+           position:absolute;
+            top:0;
+            left:0;
+            width:60%;
+            height:100%;
+            margin-left:70px;
+
+        }
+    .continer .content-box {
+    
+        position:relative;
+        width:50%;
+        border-left: 1px solid #ddd;
+        padding:15px 10px;
+    }
+        .continer .content-box header p {
+            font-size:20px;
+            color:gray;          
+            margin-bottom:10px;
+        
+        }
+        .continer .content-box header span {
+            display:block;
+            font-size:16px;
+            font-weight:700;
+            margin-bottom:10px;
+            color:#ff2525;
+        
+        }
+        .continer .content-box div:first-of-type  {
+            border-bottom: 1px solid #ddd
+        
+        }
+        .continer .content-box div:first-of-type p {
+            font-size:16px;
+            line-height:1.3;
+            margin-bottom:10px;
+        
+        }
+            .continer .content-box div:first-of-type ul {
+                margin-bottom:10px;
+            }
+         .continer .content-box div:first-of-type ul li {
+            list-style:inside;
+            font-size:15px;
+        }
+.submit-btn {
+    width:50%;
+    padding:10px 30px;
+    cursor:pointer;
+    display:block;
+    margin-left:100px;
+    margin-top:5px;
+    background:linear-gradient(to right,#eccbd1,#2fe6dc);
+    border:0;
+    outline:none;
+    border-radius:30px;
+    text-align:center;
+    color:black;
+}
+.c2{
+
+    margin-right:90px
+}
+.hinhp{
+    width:300px;
+    height:300px;
+}
+.btn1 {
+   text-align:center
+    
+}

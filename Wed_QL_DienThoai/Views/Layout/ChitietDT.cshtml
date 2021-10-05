@@ -1,0 +1,91 @@
+﻿@using Wed_QL_DienThoai.Models;
+@model DienThoai
+@{
+    ViewBag.Title = "DanhsachSp";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+    <link href="~/Content/bootstrap/css/stylesss.css" rel="stylesheet" />
+}
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+    @input;
+    }
+    else
+    {
+    @input.Substring(0, length) <text>...</text>
+    }
+}
+<section id="nav-bar">
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown ml-5">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nhãn Hàng Điện Thoại
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        @foreach (LOAI i in ViewBag.dsl)
+                        {
+                             <span class="dropdown-item">@Html.ActionLink(@i.TenLoai, "SanphamTheoLoai", "Layout", new { id = i.MaLoai }, new { @class = "nav-link" })</span>
+                        }
+                    </div>
+                </li>
+                <li class="nav-item ">
+                    @Html.ActionLink("Tìm Kiếm Nâng Cao", "SearchNC", "Layout", new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Khuyến Mãi", "Khuyenmai", "Layout", new { @class = "nav-link" })
+                </li>
+            </ul>
+        </div>
+    </nav>
+</section>
+
+<div class="continer">
+    <div class="img-box">
+        <img src="~/Content/filehinh/@Model.Anh" />
+    </div>
+    <div class="content-box">
+        <header>
+            <h2>@Model.TenDT</h2>
+            <p>THƯƠNG HIỆU: @Model.LOAI.TenLoai</p>
+            <span>Giá:@String.Format("{0:#,##}",@Model.GiaBan) VNĐ</span>
+        </header>
+        <div>
+            <p>@Model.MoTa</p>
+            <ul>
+                <li>Màn hình:@Model.ManHinh</li>
+                <li>Hệ điều hành: @Model.HeDieuHanh</li>
+                <li>Camera sau: @Model.CameraSau</li>
+                <li>Camera trước: @Model.CameraTruoc</li>
+                <li>CPU: @Model.CPU</li>
+                <li>RAM: @Model.RAM</li>
+                <li>Bộ Nhớ Trong: @Model.BoNhoTrong</li>
+                <li>Thẻ Sim: @Model.TheSim</li>
+                <li>Pin: @Model.DungLuongPin</li>
+            </ul>
+        </div>
+        <div>
+            <a class="submit-btn" href="@Url.Action("ThemMatHang","Layout",new {msp = @Model.MaDT})">MUA</a>
+            @*<button type="submit"  class="submit-btn">Thêm vào giỏ Hàng</button>*@
+        </div>
+    </div>
+</div>
+<h4>SẢN PHẨM CÙNG LOẠI</h4>
+<div>
+    <div class="row">
+        @foreach (DienThoai a in ViewBag.dscl)
+        {
+            <div class="col-md-3 c2">
+                <div class="card ">
+                    <img src="~/Content/filehinh/@a.Anh" class="card-img-top hinhp">
+                    <div class="card-body">
+                        <h5 class="card-title">@a.TenDT</h5>
+                        <p class="card-text">@Truncate(a.MoTa,100)</p>
+                        @Html.ActionLink("Chi tiết", "ChitietDT", "Layout", new {madt=a.MaDT }, new { @class = "btn1" })
+                    </div>
+                </div>
+            </div>
+    }
+    </div>
+</div>

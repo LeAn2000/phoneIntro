@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "XacNhanDonHang";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+    KhachHang khachhang = ViewBag.khach;
+}
+
+@using Wed_QL_DienThoai.Models;
+
+@model GioHang
+
+<h2>XacNhanDonHang</h2>
+<form action="/Layout/LuuDonHang" method="post">
+    <table>
+        <tr>
+            <td>Ho ten: @khachhang.HoTen</td>
+            <td>Dien thoai: @khachhang.DienThoai </td>
+        </tr>
+        <tr>
+            <td>Dia chi: @khachhang.DiaChi</td>
+        </tr>
+        <tr>
+            <td>Ngay dat: @DateTime.Now.ToShortDateString()</td>
+            <td>Ngay giao: <input type="date" name="txtDate" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <table class="table" style="display:inline">
+                    <tr><td>Thông tin đơn hàng</td></tr>
+                    <tr>
+                        <td>Mã sách</td>
+                        <td>Tên sách</td>
+                        <td>Số lượng</td>
+                        <td>Đơn giá</td>
+                    </tr>
+                    @foreach (CartItem item in Model.listDT)
+                    {
+                        <tr>
+                            <td>@item.iMaDT</td>
+                            <td>@item.sTenDT</td>
+                            <td>@item.iSoLuong</td>
+                            <td>@item.dDonGia</td>
+                        </tr>
+                    }
+                    <tr>
+                        <td>Tổng sl: @Model.TongSoSach()</td>
+                        <td> Tổng tiền: @Model.TongThanhTien()</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td> <input type="submit" value="Đồng ý đặt hàng" /></td>
+        </tr>
+    </table>
+</form>
