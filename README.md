@@ -1,4 +1,4 @@
-# phoneIntro
+# Phone Introduction
 
 Trang web sử dụng HTML/CSS để thiết kế phần front-end,
 C#, JavaScript viết phần back-end.
